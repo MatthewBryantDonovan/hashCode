@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-fs.readFile('f_libraries_of_the_world.txt', (err, data) => {
+fs.readFile('a_example.txt', (err, data) => {
     let dataDone = false;
     if (err) throw err;
     var allData = data.toString().split(`\n`);
@@ -29,7 +29,8 @@ fs.readFile('f_libraries_of_the_world.txt', (err, data) => {
                 books: currentLib[0],
                 signup: currentLib[1],
                 perDay: currentLib[2],
-                catalog: []
+                catalog: [],
+                sortedCatalog: []
             }
             for (let index = 0; index < currentBooks.length; index++) {
                 allLibs[currentObj].catalog.push({
@@ -40,8 +41,10 @@ fs.readFile('f_libraries_of_the_world.txt', (err, data) => {
             currentObj++;
         }
     }
-
-    console.log(allLibs);
-
+    
+    allLibs.forEach(i => {
+        i.catalog.sort((a, b) => (a.bookVal < b.bookVal) ? 1 : -1);
+        console.log(JSON.stringify(i.catalog, null, 4))
+    })
 
 });
