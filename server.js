@@ -5,7 +5,6 @@ fs.readFile('a_example.txt', (err, data) => {
     if (err) throw err; 
     var allData = data.toString().split(`\n`);
     allData.splice((allData.length-1), 1)
-    console.log(allData);
     var line1 = allData[0].split(" ");
     var scores = allData[1].split(" ");
     allData.splice((allData[0]), 2)
@@ -14,13 +13,13 @@ fs.readFile('a_example.txt', (err, data) => {
     var days = parseInt(line1[2]);
     console.log(allData);
     for (let index = 0; index < allData.length; index++) {
+        if ((index%2) == 0){
+            let tempLine = allData[index].split(" ");;
+            
+        } else {
 
-        
+        }
     }
-    console.log(books);
-    console.log(libs);
-    console.log(days);
-    console.log(scores);
     // allData.splice((allData.length-1), 1)
     // var sliceMax = allData[0].split(" ");
     // var sliceMax = parseInt(sliceMax[0]);
