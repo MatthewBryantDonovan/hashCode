@@ -30,8 +30,12 @@ fs.readFile('a_example.txt', (err, data) => {
                 signup: currentLib[1],
                 perDay: currentLib[2],
                 catalog: [],
+<<<<<<< HEAD
                 pointsPerDay: [],
                 booksToSend: []
+=======
+                sortedCatalog: []
+>>>>>>> 2c7e017133e740fdfef1a613cef7d6c3ca948c52
             }
             for (let index = 0; index < currentBooks.length; index++) {
                 allLibs[currentObj].catalog.push({
@@ -62,6 +66,7 @@ fs.readFile('a_example.txt', (err, data) => {
 
         }
     }
+<<<<<<< HEAD
 
     var solutionArr = [];
     
@@ -102,5 +107,12 @@ fs.readFile('a_example.txt', (err, data) => {
     console.log("----------------------------");
     console.log(JSON.stringify(solutionArr));
 
+=======
+    
+    allLibs.forEach(i => {
+        i.catalog.sort((a, b) => (a.bookVal < b.bookVal) ? 1 : -1);
+        console.log(JSON.stringify(i.catalog, null, 4))
+    })
+>>>>>>> 2c7e017133e740fdfef1a613cef7d6c3ca948c52
 
 });
